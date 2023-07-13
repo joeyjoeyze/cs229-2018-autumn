@@ -59,6 +59,7 @@ class LogisticRegression(LinearModel):
 
             # Updata theta
             self.theta -= np.linalg.inv(H).dot(gradient_J_theta)
+            breakpoint()
 
             # End training
             if np.linalg.norm(self.theta-theta_old, ord=1) < self.eps:
