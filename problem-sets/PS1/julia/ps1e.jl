@@ -1,3 +1,6 @@
+import Pkg
+Pkg.add(["CSV", "DataFrames", "LinearAlgebra", "Plots"])
+
 using CSV 
 using DataFrames
 using LinearAlgebra

@@ -1,3 +1,6 @@
+import Pkg
+Pkg.add(["CSV", "DataFrames", "LinearAlgebra", "Plots"])
+
 using CSV 
 using DataFrames
 using LinearAlgebra
@@ -47,11 +50,12 @@ function train(data_path)
         theta_prev = theta
         norm_theta = norm(theta - theta_prev)
         epoch = epoch + 1
-        if epoch % 10 == 0
-            println(["Training iteration:", theta, norm_theta, epoch])
+        if true || epoch % 10 == 0
+            println(["Training iteration:", theta, norm_theta, epoch, theta_prev])
         end
 
     end
+    println(["norm theta:", norm_theta])
 
     function predict(row)
         sigmoid(transpose(theta) * vcat(Vector(row), [1]))
